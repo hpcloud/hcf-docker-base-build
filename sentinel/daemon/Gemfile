@@ -1,0 +1,35 @@
+source (ENV['RUBYGEMS_MIRROR'] or 'https://rubygems.org')
+
+ruby '2.1.7' # prevents hard-to-diagnose errors with bundle install
+
+gem 'backports'
+gem 'celluloid'
+gem 'celluloid-io'
+gem 'childprocess'
+gem 'colored'
+gem 'daemons'
+gem 'eventmachine'
+gem 'ffi'
+gem 'listen'
+gem 'multi_json'
+gem 'nio4r'
+gem 'rack'
+gem 'rack-protection'
+gem 'rack-test'
+gem 'rb-fsevent'
+gem 'rb-inotify'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sys-proctable'
+gem 'thin'
+gem 'tilt'
+gem 'timers'
+
+group :test do
+  gem 'rubocop'
+  gem 'rspec'
+  gem 'rspec_junit_formatter'
+  gem 'rake'
+  gem 'rspec-instafail'
+  gem 'simplecov'
+end
