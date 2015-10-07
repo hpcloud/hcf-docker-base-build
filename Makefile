@@ -3,16 +3,10 @@ all: clean build
 build:
 	docker build --tag=$(TAG_NAME) .
 
-clean: clean_temp clean_tagged
+clean: clean_tagged clean_temp
 
 clean_tagged:
-	@image_ids=$$(docker images | grep "$TAG_NAME" | perl -pe 's/ +/ /g' | cut -d' ' -f3); \
-	if [ "X$$image_ids" != X ]; then \
-		(set -x; docker rmi "$$image_ids"); \
-	fi
+	@$$(docker images | grep "$(TAG_NAME)" | perl -pe 's/ +/ /g' | cut -d " " -f3 | (set -x; xargs docker rmi -f););
 
 clean_temp:
-	@image_ids=$$(docker images | grep "^<none>" | perl -pe 's/ +/ /g' | cut -d' ' -f3); \
-	if [ "X$$image_ids" != X ]; then \
-		(set -x; docker rmi "$$image_ids"); \
-	fi
+	@$$(docker images | grep "^<none>" | perl -pe 's/ +/ /g' | cut -d " " -f3 | (set -x; xargs docker rmi -f););

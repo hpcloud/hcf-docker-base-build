@@ -1,7 +1,5 @@
 source (ENV['RUBYGEMS_MIRROR'] or 'https://rubygems.org')
 
-ruby '2.1.7'
-
 gem 'docopt'
 gem 'rest-client'
 gem 'colored'
