@@ -1,0 +1,16 @@
+source (ENV['RUBYGEMS_MIRROR'] or 'https://rubygems.org')
+
+gem 'docopt'
+gem 'rest-client'
+gem 'colored'
+gem 'logging'
+
+group :test do
+  gem 'rubocop'
+  gem 'rspec'
+  gem 'rspec_junit_formatter'
+  gem 'rake'
+  gem 'rspec-instafail'
+  gem 'simplecov'
+  gem 'webmock'
+end
