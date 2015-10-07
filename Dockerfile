@@ -48,6 +48,7 @@ RUN   curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add
   #install pip for both versions of python
   curl --silent https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python3 && \
   curl --silent https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2 && \
+  ln -sf `which python3.5` `which python3` && \
   # step is made for installing Ruby gems, doing this here to remove a run layer command
   mkdir sentinel
 
